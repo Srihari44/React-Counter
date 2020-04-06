@@ -5,21 +5,40 @@ class App extends React.Component {
     super(props);
     this.state = { count: 0 };
   }
-
-  handleClick() {
-    this.setState({ count: this.state.count + 1 });
+  start_timer() {
+    document.getElementById('starter').disabled=true
+    document.getElementById('stopper').disabled=false
+    this.timeval = setInterval(()=>{this.setState({count: this.state.count+1})},1000)
+  }
+  end_timer(){
+    clearInterval(this.timeval)
+    this.setState({count: 0})
+    document.getElementById('starter').toggleAttribute("disabled")
+    document.getElementById('stopper').setAttribute("disabled","true")
+   
   }
   render() {
     return (
-      <div>
-        <h1>{this.state.count}</h1>
-        <button
+      <div className="container">
+      <div className="main-div">
+        <h1 className="count-value">{this.state.count}</h1>
+        <div className="button-group">
+        <button id="starter"
           onClick={() => {
-            this.handleClick();
+            this.start_timer()
           }}
         >
-          Click me!
+          Start!
         </button>
+        <button id="stopper"
+          onClick={() => {
+             this.end_timer()
+          }}
+        >
+          Stop!
+        </button>
+       </div>
+       </div>
       </div>
     );
   }

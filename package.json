@@ -1,14 +1,12 @@
 {
-  "name": "totodo",
+  "name": "my-react-counter",
   "version": "1.0.0",
-  "description": "My special Todo app",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "react"
-  ],
+  "keywords": [],
   "author": "Srihari",
   "license": "ISC",
   "devDependencies": {
